@@ -1,0 +1,65 @@
+
+Welcome to my C implementation of Conway's game of life or CGL.
+This is a very rudimentary implementation and has a lot of room to optimizations and expansions.
+If you don't know what the Conway game of life is, you can find out more on wikipedia or by doing a simple google search.
+
+The game is a zero players game or a cellular automata simulation.
+The world in this version is infinite as specified in the Conway game of life, but since computers are of finite memory
+the world will expand until running out of memory.
+
+The beauty of time game lies in the fact the you can get a lot of complexity from very simple rules and a simple starting seed.
+Some might argue that the Conway game of life is an analogy to our reality,
+which could be the result of some very basic rules in a computer simulation. 
+In other words we could be living in a computer simulation.
+
+Controls for the game:
+
+Arrows - scroll around the grid.
+TAB - toggle zoom levels.
+Enter - enter or remove a bit.
+Space - toggle between edit mode and simulation mode.
+D - toggle the delay amount between steps in the simulation.
+S - while in edit mode, step one generation forward.
+C - clear all the bits from the universe.
+ESC - toggle the grid view on or off.
+
+**************************** Building and running ******************************
+1) mac users:
+There is a CGL.app included in the OSX folder so theoretically it should just run.
+Since I’m not paying apple for a developer license the app is not codesigned so if your OS X has mac gatekeeper it might not let you open it without doing some trickery in the settings.
+There is also an executable file provided and that should work right as you click on it provided you stick the 2 provided SDL frameworks in /Library/Frameworks and keep the ttf file in the same folder as the executable.
+If you want to build it from the source, there is a makefile provided in the SRC folder.
+Just cd to the SRC folder and type make.
+Again you will need the SDL frameworks placed as above and the ttf file.
+
+2) Linux users:
+The program links dynamically with SDL2 and SDL2_ttf.
+So as with mac you have to have SDL2 and SDL2_ttf installed.
+To do that for most Linux flavors you just do sudo apt-get install sdl2-dev
+and sudo apt-get install sdl2-ttf-dev
+Then you can either use the provided executable or build it yourself by cd into the SRC folder and then typing make to execute the provided makefile.
+As with mac there is a ttf font file included, that file must stay in the same folder with the executables when running.
+
+3) Windows users:
+CGL links dynamically against SDL2 and SDL2_ttf
+The BIN folder for windows includes the executables, the required dlls for SDL plus a ttf font file.
+To run just double click on the executables but keep all the dlls and the ttf in the same folder, unless of course if you have SDL installed on your system then you don’t need to keep the dlls.
+If you want to build it yourself from the source code there is a makefile provided int the SRC file.
+**********************************************************************************
+
+Ideas for more features/ upgrades :
+* Optimize bits iteration so as to save unnecessary checks ( the are ways to skip some of the tests )
+* Set a max world size and when reaching this size connect the world ends as to form a sphere(although not as per conway rules)
+* Calculate the above max world size by deciding the max delay per iteration you are willing to tollerate.
+* Allow for different set of rules rather than just the Conway rules.
+* Introduce a GUI system for easier editing and controls
+* Use the above GUI system to allow loading of files with initial states coded in them or to save states on a file.
+
+Over time I might implement some of these improvements if I come up with some free time.
+
+As far as licensing goes:
+You can do whatever you want with this code.
+
+
+
+
